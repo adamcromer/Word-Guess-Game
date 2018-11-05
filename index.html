@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/CSS/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <link rel="stylesheet" type="text/javascript" href="assets/game.js">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
+    <!-- <script type="text/javascript" src="assets/game.js"></script> -->
 
     <title>Word Guess Game</title>
 </head>
+
 <body>
-    
+    <h1>Animal Word Guess Game</h1>
+    <br><br>
+    <h1 id="blankToGuess"></h1>
+
+    <p id="letterpress"></p>
+
+    <script type="text/javascript">
+
+        let wordsToGuess = ['elephant', 'giraffe', 'tiger', 'lion', 'pangolin', 'penguin', 'zebra', 'flamingo', 'gorilla', 'wolf', 'fox'];
+        let guessProgress = [];
+
+        // This picks a random index from wordsToGuess and assigns it to currentChoice.
+        let currentChoice = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
+
+        // This removes the commas from the guessProgress.
+
+        // This assigns the proper number of _ for the currentChoice.
+        for (i = 0; i < currentChoice.length; i++) {
+            guessProgress.push('-');
+        }
+
+        // This assigns the H1 element to show guessProgress on screen.
+        document.getElementById("blankToGuess").innerHTML = guessProgress;
+        
+        // This logs the currentChoice for testing purposes.
+        console.log(currentChoice);
+                
+        
+        document.onkeyup = function () {
+            var chosenLetter = String.fromCharCode(event.keyCode).toLowerCase();
+
+            //Finds if the chosenletter is in currentChoice.
+            if (chosenLetter.indexOf(currentChoice) != -1) { 
+
+                //Loops on all characters in currentChoice. Just in case there's multiple.
+                for (let i = 0; i < currentChoice.length; i++) { 
+
+                    //If it does occur in current choice then set then show it on guessProgres.
+                    if (currentChoice[i] === chosenLetter) {
+
+                        guessProgress[i] = currentChoice[i];
+                    }
+                }
+            }
+        }
+
+    </script>
 </body>
+
 </html>
