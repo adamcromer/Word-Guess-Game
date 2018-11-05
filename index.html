@@ -16,48 +16,58 @@
     <h1>Animal Word Guess Game</h1>
     <br><br>
     <h1 id="blankToGuess"></h1>
-
-    <p id="letterpress"></p>
+    <br><br>
+    <h1>Letters Guessed:<p id="lettersChosen"></p>
+    </h1>
 
     <script type="text/javascript">
 
         let wordsToGuess = ['elephant', 'giraffe', 'tiger', 'lion', 'pangolin', 'penguin', 'zebra', 'flamingo', 'gorilla', 'wolf', 'fox'];
         let guessProgress = [];
+        let lettersChosen = [];
 
         // This picks a random index from wordsToGuess and assigns it to currentChoice.
         let currentChoice = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
 
-        // This removes the commas from the guessProgress.
-
         // This assigns the proper number of _ for the currentChoice.
         for (i = 0; i < currentChoice.length; i++) {
-            guessProgress.push('-');
+            guessProgress.push('_');
         }
 
-        // This assigns the H1 element to show guessProgress on screen.
-        document.getElementById("blankToGuess").innerHTML = guessProgress;
-        
         // This logs the currentChoice for testing purposes.
         console.log(currentChoice);
-                
-        
-        document.onkeyup = function () {
-            var chosenLetter = String.fromCharCode(event.keyCode).toLowerCase();
 
-            //Finds if the chosenletter is in currentChoice.
-            if (chosenLetter.indexOf(currentChoice) != -1) { 
+        let chosenLetter = prompt("Enter a letter");
 
-                //Loops on all characters in currentChoice. Just in case there's multiple.
-                for (let i = 0; i < currentChoice.length; i++) { 
+        // console.log(chosenLetter);
 
-                    //If it does occur in current choice then set then show it on guessProgres.
-                    if (currentChoice[i] === chosenLetter) {
+        // document.onkeyup = function () {
+        //     var chosenLetter = String.fromCharCode(event.keyCode).toLowerCase();
 
-                        guessProgress[i] = currentChoice[i];
-                    }
+        //Finds if the chosenletter is in currentChoice.
+        if (currentChoice.indexOf(chosenLetter) != -1) {
+
+            //Loops on all characters in currentChoice. Just in case there's multiple.
+            for (let i = 0; i < currentChoice.length - 1; i++) {
+
+                //If it does occur in current choice then set then show it on guessProgres.
+                if (currentChoice[i] === chosenLetter) {
+                    guessProgress[i] = currentChoice[i];
                 }
             }
+
+
         }
+
+        else {
+            lettersChosen.push(chosenLetter);
+        }
+        
+        // }
+
+        // This assigns the H1 element to show on screen and replaces commas with spaces instead.
+        document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
+        document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
 
     </script>
 </body>
