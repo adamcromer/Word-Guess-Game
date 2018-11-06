@@ -17,9 +17,11 @@
     <br><br>
     <h1 id="blankToGuess"></h1>
     <br><br>
-    <h2>Letters Guessed:<p id="lettersChosen"></p></h2>
+    <h2>Letters Guessed:<p id="lettersChosen"></p>
+    </h2>
     <br><br>
-    <h2>Lives Remaining: <p id="livesRemaining"></p></h2>
+    <h2>Lives Remaining: <p id="livesRemaining"></p>
+    </h2>
 
     <script type="text/javascript">
 
@@ -39,29 +41,27 @@
         // This logs the currentChoice for testing purposes.
         console.log(currentChoice);
 
-        let thisLetter = prompt("Enter a letter");
-
-        console.log(thisLetter);
-
         document.onkeyup = function (event) {
-            let chosenLetter = String.fromCharCode(event.keyCode).toLowerCase();
-            console.log(chosenLetter);
+            let chosenLetter = event.key.toLowerCase();
 
             //Finds if the chosenletter is in currentChoice.
             if (currentChoice.indexOf(chosenLetter) != -1) {
 
                 //Loops on all characters in currentChoice. Just in case there's multiple.
-                for (let i = 0; i < currentChoice.length - 1; i++) {
+                for (let i = 0; i < currentChoice.length; i++) {
 
                     //If it does occur in current choice then set then show it on guessProgres.
                     if (currentChoice[i] === chosenLetter) {
+
                         guessProgress[i] = currentChoice[i];
+                        document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
                     }
                 }
             }
 
             else {
                 lettersChosen.push(chosenLetter);
+                console.log("push");
                 lives = lives - 1;
             }
         }
