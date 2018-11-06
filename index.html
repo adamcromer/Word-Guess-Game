@@ -14,14 +14,19 @@
 
 <body>
     <h1>Animal Word Guess Game</h1>
-    <br><br>
-    <h1 id="blankToGuess"></h1>
-    <br><br>
-    <h2>Letters Guessed:<p id="lettersChosen"></p>
-    </h2>
-    <br><br>
-    <h2>Lives Remaining: <p id="livesRemaining"></p>
-    </h2>
+
+    <div>
+        <br><br>
+        <h1 id="blankToGuess"></h1>
+        <br><br>
+        <div id="mainBody">
+            <h2 class="bodyElements">Letters Guessed:<p id="lettersChosen"></p>
+            </h2>
+            <br><br>
+            <h2 class="bodyElements">Lives Remaining: <p id="livesRemaining"></p>
+            </h2>
+        </div>
+    </div>
 
     <script type="text/javascript">
 
@@ -29,6 +34,7 @@
         let guessProgress = [];
         let lettersChosen = [];
         let lives = 10;
+        let mainBody = document.getElementById("mainBody");
 
         // This picks a random index from wordsToGuess and assigns it to currentChoice.
         let currentChoice = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length + 1) + 1];
@@ -54,19 +60,51 @@
                     if (currentChoice[i] === chosenLetter) {
 
                         guessProgress[i] = currentChoice[i];
-                        document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
+
                     }
                 }
             }
 
             else {
-                lettersChosen.push(chosenLetter);
-                console.log("push");
-                lives = lives - 1;
+
+                if (lettersChosen.indexOf(chosenLetter) === -1) {
+                    lettersChosen.push(chosenLetter);
+                    lives = lives - 1;
+                }
+
+            }
+
+            // This assigns the H1 element to show on screen and replaces commas with spaces instead.
+            document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
+            document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
+            document.getElementById("livesRemaining").innerHTML = lives;
+
+            if (currentChoice === guessProgress.join('')) {
+                let winDiv = document.createElement("h2");
+                let tryAgain = document.createElement("a");
+                tryAgain.setAttribute("id", "AgainButton");
+                winDiv.textContent = ("You win!");
+                tryAgain.textContent = ("Try again?");
+                tryAgain.href = ("/Word-Guess-Game/index.html")
+                mainBody.textContent = ("");
+                mainBody.appendChild(winDiv);
+                mainBody.appendChild(tryAgain);
+            }
+
+            if (lives === 0) {
+
+                let loseDiv = document.createElement("h2");
+                let tryAgain = document.createElement("a");
+                tryAgain.setAttribute("id", "AgainButton");
+                loseDiv.textContent = ("You lose!");
+                tryAgain.textContent = ("Try again?");
+                tryAgain.href = ("/Word-Guess-Game/index.html")
+                mainBody.textContent = ("");
+                mainBody.appendChild(loseDiv);
+                mainBody.appendChild(tryAgain);
             }
         }
-
-        // This assigns the H1 element to show on screen and replaces commas with spaces instead.
+        // let container = document.getElementById("container").innerHTML
         document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
         document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
         document.getElementById("livesRemaining").innerHTML = lives;

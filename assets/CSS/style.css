@@ -7,3 +7,14 @@ h2 {
     font-size:6vw;
     text-align:center;
 }
+
+#AgainButton {
+    background-color:blue;
+    padding:0px;
+    text-align:center;
+    color:black;
+    font-size:6vw;
+    width:33.3%;
+    margin-left:33.3%;
+
+}
