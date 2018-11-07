@@ -8,16 +8,19 @@
     <link rel="stylesheet" type="text/css" href="assets/CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
     <!-- <script type="text/javascript" src="assets/game.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 
     <title>Word Guess Game</title>
 </head>
 
 <body>
-    <h1>Animal Word Guess Game</h1>
+    <header>
+        <h1>Animal Word Guess Game</h1>
+    </header>
 
-    <div>
+    <div class="container">
         <br><br>
-        <h1 id="blankToGuess"></h1>
+        <h1 id="blankToGuess"> </h1>
         <br><br>
         <div id="mainBody">
             <h2 class="bodyElements">Letters Guessed:<p id="lettersChosen"></p>
@@ -30,7 +33,7 @@
 
     <script type="text/javascript">
 
-        let wordsToGuess = ['bear', 'turkey', 'donkey', 'tarantula', 'scorption', 'pigeon', 'mongoose', 'seagull', 'hawk', 'eagle', 'elephant', 'giraffe', 'tiger', 'lion', 'pangolin', 'penguin', 'zebra', 'flamingo', 'gorilla', 'wolf', 'fox', 'shark', 'octopus', 'monkey', 'lobster', 'hyena', 'moose', 'horse', 'goat', 'llama', 'alpaca', 'cheetah', 'pirahna', 'baracuda', 'manowar', 'giant squid', 'emu'];
+        let wordsToGuess = ['bear', 'turkey', 'donkey', 'tarantula', 'scorption', 'pigeon', 'mongoose', 'seagull', 'hawk', 'eagle', 'elephant', 'giraffe', 'tiger', 'lion', 'pangolin', 'penguin', 'zebra', 'flamingo', 'gorilla', 'wolf', 'fox', 'shark', 'octopus', 'monkey', 'lobster', 'hyena', 'moose', 'horse', 'goat', 'llama', 'alpaca', 'cheetah', 'pirahna', 'baracuda', 'manowar', 'capybara', 'emu'];
         let guessProgress = [];
         let lettersChosen = [];
         let lives = 10;

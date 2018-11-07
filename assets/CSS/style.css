@@ -1,20 +1,56 @@
+html {
+    padding: 0;
+    margin: 0;
+    background: url(/Word-Guess-Game/assets/Images/animalwallpaper.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Bitter', 'Times New Roman', serif;
+}
+
+body {
+    color:black;
+    text-shadow:
+    0.2vw 0.2vw 0 white,
+    0.2vw 0.2vw 0 white,
+    0.2vw 0.2vw 0 white,
+    0.2vw 0.2vw 0 white;
+    font-family: 'Bitter', 'Times New Roman', serif;
+}
+
+header {
+    width:70%;
+    margin: 2vw 15%;
+    background-color:#fd6c76;
+    padding: 1vw 0 1vw 0;
+    border:0.25vw solid black;
+}
+
+.container {
+    width:70%;
+    margin:5% 15%;
+    background-color:#5b9932;
+    padding:1.5vw 0 5vw 0; 
+    border:0.25vw solid black;
+}
+
 h1 {
-    font-size:8vw;
+    font-size:5vw;
     text-align:center;
 }
 
 h2 {
-    font-size:6vw;
+    font-size:4vw;
     text-align:center;
 }
 
 #AgainButton {
-    background-color:blue;
-    padding:0px;
+    padding:0.5vw;
     text-align:center;
-    color:black;
-    font-size:6vw;
+    font-size:4vw;
     width:33.3%;
     margin-left:33.3%;
-
+    color:black;
+    background-color:#fd6c76;
+    text-decoration:none;
+    margin-top:5vw;
+    border:0.25vw solid black;
 }
