@@ -20,7 +20,7 @@ body {
 
 header {
     width:70%;
-    margin: 2vw 15%;
+    margin: 1vw 15%;
     background-color:#fd6c76;
     padding: 1vw 0 1vw 0;
     border:0.25vw solid black;
@@ -28,19 +28,19 @@ header {
 
 .container {
     width:70%;
-    margin:3vw 15%;
+    margin:1.5vw 15%;
     background-color:#5b9932;
-    padding:1.5vw 0 0 0; 
+    padding:1vw 0 0 0; 
     border:0.25vw solid black;
 }
 
 h1 {
-    font-size:5vw;
+    font-size:4vw;
     text-align:center;
 }
 
 h2 {
-    font-size:4vw;
+    font-size:3vw;
     text-align:center;
     margin-bottom:2vw;
 }
@@ -48,8 +48,8 @@ h2 {
 #againButton {
     padding:0.5vw;
     text-align:center;
-    font-size:4vw;
-    margin-left:36%;
+    font-size:3vw;
+    margin-left:38%;
     color:black;
     background-color:#fd6c76;
     text-decoration:none;
@@ -57,16 +57,12 @@ h2 {
     border:0.25vw solid black;
 }
 
-#mainWord {
-    /* background-color:orange; */
-}
+/* #mainWord {
+    background-color:orange;
+} */
 
 #wrongBody {
     /* background-color:red; */
     margin-top:2vw;
     margin-bottom:5vw;
-}
-
-a {
-    text-align:center;
 }

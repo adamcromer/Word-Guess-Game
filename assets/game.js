@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (currentChoice === guessProgress.join('')) {
                 let winDiv = document.createElement("h2");
                 let tryAgain = document.createElement("a");
-                tryAgain.setAttribute("id", "AgainButton");
+                tryAgain.setAttribute("id", "againButton");
                 winDiv.textContent = ("You win!");
                 tryAgain.textContent = ("Try again?");
                 tryAgain.href = ("/Word-Guess-Game/index.html")
@@ -71,13 +71,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (lives === 0) {
 
                 let loseDiv = document.createElement("h2");
+                let correctAns = document.createElement("h2");
                 let tryAgain = document.createElement("a");
-                tryAgain.setAttribute("id", "againButton");
-                loseDiv.textContent = ("You lose! The correct answer was " + currentChoice + ".");
+                                tryAgain.setAttribute("id", "againButton");
+                loseDiv.textContent = ("You lose!");
+                correctAns.textContent = ("The correct answer was " + currentChoice + ".");
                 tryAgain.textContent = ("Try again?");
                 tryAgain.href = ("/Word-Guess-Game/index.html")
                 wrongBody.textContent = ("");
                 wrongBody.appendChild(loseDiv);
+                wrongBody.appendChild(correctAns);
                 wrongBody.appendChild(tryAgain);
             }
         }
