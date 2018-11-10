@@ -11,21 +11,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let pressButton = "Press any button to begin.";
     let newGame = false;
 
-    // This picks a random index from wordsToGuess and assigns it to currentChoice.
-    let currentChoice = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
-
-    // This logs the currentChoice for testing purposes.
-    console.log(currentChoice);
-
     document.getElementById("blankToGuess").innerHTML = pressButton;
     document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
     document.getElementById("livesRemaining").innerHTML = lives;
+    document.getElementById("wins").innerHTML = wins;
+    document.getElementById("losses").innerHTML = losses;
 
     // This assigns the proper number of _ for the currentChoice.
     function randomWord() {
+        // This picks a random index from wordsToGuess and assigns it to currentChoice.
+        currentChoice = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
+
+        // This logs the currentChoice for testing purposes.
+        console.log(currentChoice);
+
         for (i = 0; i < currentChoice.length; i++) {
             guessProgress.push('_');
         }
+    }
+
+    function reset() {
+        guessProgress = [];
+        lettersChosen = [];
+        lives = 7;
+
+        randomWord();
+
     }
 
     document.onkeyup = function (event) {
@@ -67,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 if (currentChoice === guessProgress.join('')) {
                     let winDiv = document.createElement("h2");
                     let tryAgain = document.createElement("h2");
-                    tryAgain.setAttribute("id", "againButton");
                     winDiv.textContent = ("You win!");
                     tryAgain.textContent = ("Try again?");
                     wrongBody.textContent = ("");
@@ -84,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     let loseDiv = document.createElement("h2");
                     let correctAns = document.createElement("h2");
                     let tryAgain = document.createElement("h2");
-                    tryAgain.setAttribute("id", "againButton");
                     loseDiv.textContent = ("You lose!");
                     correctAns.textContent = ("The correct answer was " + currentChoice + ".");
                     tryAgain.textContent = ("Try again?");
@@ -93,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     wrongBody.appendChild(correctAns);
                     wrongBody.appendChild(tryAgain);
                     losses = losses + 1;
-                    console.log(losses);
                     newGame = false;
                     document.getElementById("blankToGuess").innerHTML = pressButton;
                 }
@@ -102,11 +110,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         else {
             guessProgress = [];
+            lettersChosen = [];
+            lives = 7;
+            console.log(lives);
+
+            
             randomWord();
 
             newGame = true;
+
+            
             document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ')
-            document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
+            // document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
             document.getElementById("livesRemaining").innerHTML = lives;
         }
     }

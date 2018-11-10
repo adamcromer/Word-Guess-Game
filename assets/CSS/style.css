@@ -1,7 +1,7 @@
 html {
     padding: 0;
     margin: 0;
-    background: url(/Word-Guess-Game/assets/Images/animalwallpaper.jpg) no-repeat center center fixed;
+    background: url(/assets/Images/animalwallpaper.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: 'Bitter', 'Times New Roman', serif;
     height:100%;
@@ -28,9 +28,10 @@ header {
 
 .container {
     width:70%;
+    height:35vw;
     margin:1.5vw 15%;
     background-color:#5b9932;
-    padding:1vw 0 0 0; 
+    padding:1vw 0 1vw 0; 
     border:0.25vw solid black;
 }
 
@@ -42,27 +43,32 @@ h1 {
 h2 {
     font-size:3vw;
     text-align:center;
-    margin-bottom:2vw;
 }
 
-#againButton {
-    padding:0.5vw;
-    text-align:center;
+h3 {
     font-size:3vw;
-    margin-left:38%;
-    color:black;
-    background-color:#fd6c76;
-    text-decoration:none;
-    margin-top:5vw;
-    border:0.25vw solid black;
+    text-align:center;
 }
 
-/* #mainWord {
+#mainWord {
     background-color:orange;
-} */
+    width:100%;
+}
 
-#wrongBody {
-    /* background-color:red; */
-    margin-top:2vw;
-    margin-bottom:5vw;
+
+#sectionRight,
+#sectionLeft {
+    float:left;
+    width:50%;
+    padding-top:1vw;
+    padding-bottom:1vw;
+}
+
+#sectionLeft {
+    background-color:purple;
+
+}   
+
+#sectionRight {
+    background-color:yellow;
 }
