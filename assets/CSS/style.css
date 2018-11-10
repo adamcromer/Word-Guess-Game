@@ -28,10 +28,10 @@ header {
 
 .container {
     width:70%;
-    height:35vw;
+    height:40vw;
     margin:1.5vw 15%;
     background-color:#5b9932;
-    padding:1vw 0 1vw 0; 
+    padding:0;
     border:0.25vw solid black;
 }
 
@@ -50,9 +50,15 @@ h3 {
     text-align:center;
 }
 
+/* .bodyElements {
+    border:0.25vw solid black;
+} */
+
 #mainWord {
-    background-color:orange;
+    background-color:#6aadbe;
     width:100%;
+    padding-top:1vw;
+    padding-bottom:1vw;
 }
 
 
@@ -60,15 +66,20 @@ h3 {
 #sectionLeft {
     float:left;
     width:50%;
-    padding-top:1vw;
+    padding-top:2vw;
     padding-bottom:1vw;
 }
 
-#sectionLeft {
+/* #sectionLeft {
     background-color:purple;
 
 }   
 
 #sectionRight {
     background-color:yellow;
+} */
+
+#lettersChosen {
+    height:4vw;
+    margin-top:2vw;
 }

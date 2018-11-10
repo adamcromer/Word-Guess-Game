@@ -7,15 +7,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let wins = 0;
     let losses = 0;
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
-    let wrongBody = document.getElementById("wrongBody");
     let pressButton = "Press any button to begin.";
     let newGame = false;
 
+
+    function pushToPage() {
+
+        // document.getElementById("blankToGuess").innerHTML = pressButton;
+        document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
+        document.getElementById("livesRemaining").innerHTML = lives;
+        document.getElementById("wins").innerHTML = wins;
+        document.getElementById("losses").innerHTML = losses;
+
+    }
+
+    pushToPage();
     document.getElementById("blankToGuess").innerHTML = pressButton;
-    document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
-    document.getElementById("livesRemaining").innerHTML = lives;
-    document.getElementById("wins").innerHTML = wins;
-    document.getElementById("losses").innerHTML = losses;
+
 
     // This assigns the proper number of _ for the currentChoice.
     function randomWord() {
@@ -44,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         if (newGame) {
 
+            document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
+
+
             // Makes sure the button pressed is a letter of the alphabet.
             if (alphabet.indexOf(chosenLetter) != -1) {
 
@@ -71,58 +82,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 // This assigns the H1 element to show on screen and replaces commas with spaces instead.
-                document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ')
-                document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
-                document.getElementById("livesRemaining").innerHTML = lives;
+
 
                 if (currentChoice === guessProgress.join('')) {
-                    let winDiv = document.createElement("h2");
-                    let tryAgain = document.createElement("h2");
-                    winDiv.textContent = ("You win!");
-                    tryAgain.textContent = ("Try again?");
-                    wrongBody.textContent = ("");
-                    wrongBody.appendChild(winDiv);
-                    wrongBody.appendChild(tryAgain);
+
+
                     wins = wins + 1;
-                    console.log(wins);
                     newGame = false;
-                    document.getElementById("blankToGuess").innerHTML = pressButton;
+                    document.getElementById("blankToGuess").innerHTML = "You win! Press any button to try again.";
+
                 }
 
                 if (lives === 0) {
 
-                    let loseDiv = document.createElement("h2");
-                    let correctAns = document.createElement("h2");
-                    let tryAgain = document.createElement("h2");
-                    loseDiv.textContent = ("You lose!");
-                    correctAns.textContent = ("The correct answer was " + currentChoice + ".");
-                    tryAgain.textContent = ("Try again?");
-                    wrongBody.textContent = ("");
-                    wrongBody.appendChild(loseDiv);
-                    wrongBody.appendChild(correctAns);
-                    wrongBody.appendChild(tryAgain);
+                    // correctAns.textContent = ("The correct answer was " + currentChoice + ".");
+                    // tryAgain.textContent = ("Try again?");
+                    // wrongBody.textContent = ("");
                     losses = losses + 1;
+
+                    document.getElementById("blankToGuess").innerHTML = "You lose! The correct answer was " + currentChoice + ". Press any button to try again.";
+
                     newGame = false;
-                    document.getElementById("blankToGuess").innerHTML = pressButton;
                 }
             }
+
+            pushToPage();
         }
 
         else {
             guessProgress = [];
             lettersChosen = [];
             lives = 7;
-            console.log(lives);
-
             
-            randomWord();
-
             newGame = true;
 
-            
-            document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ')
-            // document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
-            document.getElementById("livesRemaining").innerHTML = lives;
+            randomWord();
+            pushToPage();
+
+            document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
         }
     }
 });
