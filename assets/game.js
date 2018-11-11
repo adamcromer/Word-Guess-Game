@@ -22,9 +22,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     pushToPage();
-
     document.getElementById("blankToGuess").innerHTML = pressButton;
-
 
     // This assigns the proper number of _ for the currentChoice.
     function randomWord() {
@@ -37,15 +35,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         for (i = 0; i < currentChoice.length; i++) {
             guessProgress.push('_');
         }
-    }
-
-    function reset() {
-        guessProgress = [];
-        lettersChosen = [];
-        lives = 7;
-
-        randomWord();
-
     }
 
     document.onkeyup = function (event) {
@@ -96,9 +85,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 if (lives === 0) {
 
-                    // correctAns.textContent = ("The correct answer was " + currentChoice + ".");
-                    // tryAgain.textContent = ("Try again?");
-                    // wrongBody.textContent = ("");
                     losses = losses + 1;
 
                     document.getElementById("blankToGuess").innerHTML = "You lose! The correct answer was " + currentChoice + ". Press any button to try again.";
