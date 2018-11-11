@@ -1,7 +1,7 @@
 html {
     padding: 0;
     margin: 0;
-    background: url(/assets/Images/animalwallpaper.jpg) no-repeat center center fixed;
+    background: url(../Images/animalwallpaper.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: 'Bitter', 'Times New Roman', serif;
     height:100%;
