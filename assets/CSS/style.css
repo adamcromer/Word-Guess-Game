@@ -4,7 +4,6 @@ html {
     background: url(../Images/animalwallpaper.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: 'Bitter', 'Times New Roman', serif;
-    height:100%;
 }
 
 body {
@@ -73,3 +72,4 @@ h3 {
     height:4vw;
     margin-top:2vw;
 }
+
