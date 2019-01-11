@@ -10,10 +10,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let pressButton = "Press any button to begin.";
     let newGame = false;
 
-
     function pushToPage() {
 
-        // document.getElementById("blankToGuess").innerHTML = pressButton;
         document.getElementById("lettersChosen").innerHTML = lettersChosen.join(' ');
         document.getElementById("livesRemaining").innerHTML = lives;
         document.getElementById("wins").innerHTML = wins;
