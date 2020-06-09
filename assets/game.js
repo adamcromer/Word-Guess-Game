@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById("livesRemaining").innerHTML = lives;
         document.getElementById("wins").innerHTML = wins;
         document.getElementById("losses").innerHTML = losses;
-
     }
 
     pushToPage();
@@ -40,17 +39,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let chosenLetter = event.key.toLowerCase();
 
         if (newGame) {
-
             document.getElementById("blankToGuess").innerHTML = guessProgress.join(' ');
 
             // Makes sure the button pressed is a letter of the alphabet.
             if (alphabet.indexOf(chosenLetter) != -1) {
                 console.log("test");
                 pushToPage();
-
                 //Finds if the chosenletter is in currentChoice.
                 if (currentChoice.indexOf(chosenLetter) != -1) {
-
                     //Loops on all characters in currentChoice. Just in case there's multiple.
                     for (let i = 0; i < currentChoice.length; i++) {
 
@@ -65,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 else {
-
                     if (lettersChosen.indexOf(chosenLetter) === -1) {
                         lettersChosen.push(chosenLetter);
                         lives = lives - 1;
@@ -73,9 +68,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 // This assigns the H1 element to show on screen and replaces commas with spaces instead.
-
                 if (currentChoice === guessProgress.join('')) {
-
                     wins = wins + 1;
                     newGame = false;
                     document.getElementById("blankToGuess").innerHTML = "You win! Press any button to try again.";
